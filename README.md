@@ -1,6 +1,6 @@
 # PianoApp (piano-app)
 
-An app that helps learning piano
+An app that helps to learn piano
 
 ## Install the dependencies
 ```bash
