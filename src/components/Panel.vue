@@ -1,9 +1,10 @@
 <template lang='pug'>
-q-card.q-ma-xs.q-pt-xs
-  .row.justify-center
-    .text-h7 {{name}}
+q-card.column
+  q-card-section.q-pa-sm
+    .row.justify-center
+      .text-h6 {{name}}
   q-separator(inset)
-  q-card-actions.no-wrap.justify-around(align="center")
+  q-card-section.q-pa-sm.action-container.row.no-wrap.justify-around.items-center
     slot
 </template>
 
@@ -17,4 +18,7 @@ export default {
 </script>
 
 <style>
+.action-container {
+  flex-grow: 1
+}
 </style>

@@ -4,15 +4,17 @@ Panel(name="Looping")
     q-checkbox(v-model='isLooping' dense)
     q-range(
       :disable='!isLooping'
-      v-model='standard'
+      v-model='limits'
       :min="0"
       :max="50"
       :dense='true'
+      @change="change"
       label
     )
 </template>
 
 <script>
+import { inject, ref } from 'vue';
 import Panel from './Panel.vue';
 
 export default {
@@ -20,14 +22,25 @@ export default {
   components: {
     Panel,
   },
-  data() {
-    return {
-      isLooping: true,
-      standard: {
-        min: 10,
-        max: 35,
-      },
-    };
+  setup() {
+    const isLooping = ref(false);
+    const limits = ref({
+      min: 10,
+      max: 35,
+    });
+    const app = inject('theApp');
+    console.log(app);
+    return { app, isLooping, limits };
+  },
+  watch: {
+    isLooping(newVal) {
+      if (newVal) {
+        this.app.value.loop(this.limits);
+      }
+    },
+  },
+  methods: {
+    change() { this.app.value.loop(this.limits); },
   },
 };
 </script>

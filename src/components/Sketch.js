@@ -53,6 +53,9 @@ export default {
     this.pause();
     this.resetNotes();
   },
+  tempoChange(tempo) { console.log('tempo change', tempo); },
+  loop(limits) { console.log(limits, 'looping'); },
+  mode() { console.log('Mode changed'); },
 
   bpm2px(deltaTime) { return (120 * 4) / (1000 / deltaTime); },
 
