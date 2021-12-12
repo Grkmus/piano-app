@@ -1,5 +1,5 @@
 <template lang='pug'>
-q-card.column
+q-card.column.q-ma-xs
   q-card-section.q-pa-sm
     .row.justify-center
       .text-h6 {{name}}

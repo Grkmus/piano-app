@@ -55,8 +55,9 @@ export default {
   },
   tempoChange(tempo) { console.log('tempo change', tempo); },
   loop(limits) { console.log(limits, 'looping'); },
-  mode() { console.log('Mode changed'); },
-
+  mode(newVal) { console.log('Mode changed to:', newVal); },
+  leftHand(newVal) { console.log('left hands change', newVal); },
+  rightHand(newVal) { console.log('right hands change', newVal); },
   bpm2px(deltaTime) { return (120 * 4) / (1000 / deltaTime); },
 
   gameLoop() {//eslint-disable-line
